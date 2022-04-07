@@ -1,7 +1,7 @@
 <template>
-  
+  <div class="general">
   <picsGeneral :picsList="picturesList"/>
-
+  </div>
 </template>
 
 <script>
@@ -17,17 +17,20 @@ export default {
     return {picturesList : []};
   },
   created(){
-    let cats = new contentSourse('https://api.thecatapi.com/v1/images/search', {}, "url");
-    let dogs = new contentSourse('https://random.dog/woof.json', {},"url");
-    cats.changeTempJSONinfo();
-    dogs.changeTempJSONinfo();
-    console.log(dogs.changeTempJSONinfo());
+    let cats_1 = new contentSourse('https://api.thecatapi.com/v1/images/search', {}, "url");
+    cats_1.changeTempJSONinfo();
+    let cats_2 = new contentSourse('https://api.thecatapi.com/v1/images/search', {},"url");
+    cats_2.changeTempJSONinfo();
+    let cats_3 = new contentSourse('https://api.thecatapi.com/v1/images/search', {},"url");
+    cats_3.changeTempJSONinfo();
+    
+
     // while(dogs.tempJSONinfo[dogs.keyWord].indexof("mp4") !== -1){
     //   dogs.changeTempJSONinfo();
     // }
     
 
-    this.picturesList = [cats, dogs
+    this.picturesList = [cats_1,cats_2, cats_3
                           // { const APIurl : String   :
                           //  class objects
                             
@@ -64,6 +67,16 @@ class contentSourse{
 </script>
 
 <style>
+
+
+.general{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 50px;
+    padding: 30px;
+    
+    
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
