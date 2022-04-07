@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+  <picsGeneral :picsList="picturesList"/>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import picsGeneral from './components/picsGeneral.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    picsGeneral,
+  },
+  data(){
+    return {picturesList : []};
+  },
+  created(){
+    this.picturesList = [{text:"PICTURE1",
+                          id:1},
+                          // {text:"PICTURE2",
+                          // id:2}, 
+                          // {text:"PICTURE3",
+                          // id:3}
+                          ];
   }
 }
 </script>
