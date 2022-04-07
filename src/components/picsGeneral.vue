@@ -2,6 +2,7 @@
     <div :key= pic.id  v-for="pic in picsList" class="general-picture-block">
         <singlePic :pic ="pic"/>
     </div>
+
 </template>
 
 <script>

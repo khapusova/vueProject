@@ -17,8 +17,20 @@ export default {
     return {picturesList : []};
   },
   created(){
-    this.picturesList = [{text:"PICTURE1",
-                          id:1},
+    let cats = new contentSourse('https://api.thecatapi.com/v1/images/search', {}, "url");
+    let dogs = new contentSourse('https://random.dog/woof.json', {},"url");
+    cats.changeTempJSONinfo();
+    dogs.changeTempJSONinfo();
+    console.log(dogs.changeTempJSONinfo());
+    // while(dogs.tempJSONinfo[dogs.keyWord].indexof("mp4") !== -1){
+    //   dogs.changeTempJSONinfo();
+    // }
+    
+
+    this.picturesList = [cats, dogs
+                          // { const APIurl : String   :
+                          //  class objects
+                            
                           // {text:"PICTURE2",
                           // id:2}, 
                           // {text:"PICTURE3",
@@ -26,6 +38,29 @@ export default {
                           ];
   }
 }
+
+class contentSourse{
+    constructor(APIurl,tempJSONinfo,keyWord){
+        this.APIurl = APIurl;
+        this.tempJSONinfo = tempJSONinfo;
+        this.keyWord = keyWord;
+    }
+
+
+
+    changeTempJSONinfo(){
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open( "GET", this.APIurl, false ); // false for synchronous request
+      xmlHttp.send( null );
+
+      let responseParsed = JSON.parse(xmlHttp.responseText);
+      this.tempJSONinfo = responseParsed[0];
+      console.log(this.tempJSONinfo);
+    }
+    }
+
+
+
 </script>
 
 <style>
