@@ -9,7 +9,7 @@
 
 import picsGeneral from './components/picsGeneral.vue';
 import Button from './components/Button.vue';
-import {contentSourse} from './contentSource.js'
+import {createObjectList} from './modules.js'
 
 export default {
   name: 'App',
@@ -22,22 +22,13 @@ export default {
     return {picturesList : []};
   },
 
-  created(){
+   created(){
+    createObjectList(6)
+                          .then((data) => {this.picturesList = data })
+                          .catch((err) => { console.log(err) });
 
-    let cats_1 = new contentSourse('https://api.thecatapi.com/v1/images/search', {}, "url");
-    cats_1.changeTempJSONinfo();
-    let cats_2 = new contentSourse('https://api.thecatapi.com/v1/images/search', {},"url");
-    cats_2.changeTempJSONinfo();
-    let cats_3 = new contentSourse('https://api.thecatapi.com/v1/images/search', {},"url");
-    cats_3.changeTempJSONinfo();
-
-
-    this.picturesList = [cats_1,cats_2, cats_3];
   }
 }
-
-
-
 
 
 </script>

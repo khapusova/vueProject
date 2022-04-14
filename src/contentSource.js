@@ -8,13 +8,11 @@ export class contentSourse{
 
 
 
-    changeTempJSONinfo(){
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open( "GET", this.APIurl, false );
-      xmlHttp.send( null );
-
-      let responseParsed = JSON.parse(xmlHttp.responseText);
-      this.tempJSONinfo = responseParsed[0];
-      console.log(this.tempJSONinfo);
+    async changeTempJSONinfo(){
+        const response = await fetch(this.APIurl);
+        const responseJSON = await response.json();
+        this.tempJSONinfo = responseJSON[0];
+        console.log( this.tempJSONinfo); 
+    
     }
     }
