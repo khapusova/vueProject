@@ -34,12 +34,19 @@ export default {
     margin: 20px;
     max-width: 31.333%;
     padding: 0 10px;
-    height: 240px;
+    height: 150px;
+    width: 300px;
+    border: 2px solid #852a9121;
+    background-color: #ab90ea36;
  
+}
+.single-picture :hover{
+    border: 2px solid #852a9128;
+    background-color: #ab90ea3f;
 }
 .single-picture img{
  
-    width: 100%;
+    width: auto;
     height: 100%;
     
 
