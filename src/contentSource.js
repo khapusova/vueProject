@@ -12,7 +12,6 @@ export class contentSourse{
         const response = await fetch(this.APIurl);
         const responseJSON = await response.json();
         this.tempJSONinfo = responseJSON[0];
-        console.log( this.tempJSONinfo); 
     
     }
     }

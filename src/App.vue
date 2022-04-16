@@ -1,43 +1,37 @@
 <template>
-  <div class="general">
+  
   <picsGeneral :picsList="picturesList"/>
-  </div>
-  <Button text="Reload all pictures" :lst="picturesList" />
+  <Button text="Reload all pictures" :lst="picturesList" /> 
 </template>
 
 <script>
-
 import picsGeneral from './components/picsGeneral.vue';
 import Button from './components/Button.vue';
-import {createObjectList} from './modules.js'
-
+import {createObjectList} from './modules.js';
 export default {
   name: 'App',
   components: {
     picsGeneral,
     Button,
   },
-
   data(){
     return {picturesList : []};
   },
-
    created(){
-    createObjectList(6)
+    createObjectList(12)
                           .then((data) => {this.picturesList = data })
                           .catch((err) => { console.log(err) });
-
   }
 }
-
-
 </script>
 
 <style>
-
-
+.gen div::after{
+  display: inline;
+  
+}
 .general{
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     margin: 0 50px;
     padding: 30px;
@@ -53,3 +47,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+

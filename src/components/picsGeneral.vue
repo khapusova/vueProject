@@ -1,42 +1,28 @@
 <template>
     
-        <div :key=pic.id  v-for="pic in picsList" class="single-picture" >
-            <singlePic :pic ="pic" />
+        <div :key=picSubLst.id  v-for="picSubLst in picsList" class="gen" >
+            <row :lst ="picSubLst" />
         </div>
     
 </template>
 
 <script>
-
-import singlePic from './singlePic.vue';
+import row from './row.vue';
 export default {
     name: "picsGeneral",
     props: {
         picsList: Array,
     },
     components:{
-        singlePic
+        row
     },
 }
 </script>
 
 
 <style scoped>
-
-
-.single-picture {
-    margin: 20px;
-    max-width: 31.333%;
-    padding: 0 10px;
-    height: 240px;
- 
-
-}
+.gen div::after{
+  display: inline;
   
-.single-picture img {
-    width: 100%;
-    height: 100%;
-    
-
 }
 </style>

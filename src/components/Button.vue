@@ -15,7 +15,9 @@ export default {
     methods:{
         reloadAll(pcsLst){
             pcsLst.forEach( (el) => 
-            el.changeTempJSONinfo());
+            el.forEach((pict)=>{
+                pict.changeTempJSONinfo();
+            }));
         }
     }
     
