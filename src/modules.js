@@ -21,3 +21,11 @@ export async function createObjectList(amountOfObjects){
      return result;
 }
 
+export async function addPictures(amount, lst){
+ let newLst = [];
+ for (var i = 0; i < amount; i++) { 
+     await newLst.push(new contentSourse('https://api.thecatapi.com/v1/images/search', {}, "url"))
+     await newLst[newLst.length-1].changeTempJSONinfo();
+ }
+ lst.push(newLst)
+}
